@@ -84,7 +84,7 @@ namespace mvckutuphane.Controllers
             return View("KitapGetir", ktp);
         }
 
-        public ActionResult GitapGuncelle(TBLKITAP p)
+        public ActionResult KitapGuncelle(TBLKITAP p)
         {
             var kitap = db.TBLKITAP.Find(p.ID);
             kitap.AD = p.AD;
