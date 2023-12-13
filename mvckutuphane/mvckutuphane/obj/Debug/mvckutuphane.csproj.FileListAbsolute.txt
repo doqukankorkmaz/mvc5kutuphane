@@ -174,3 +174,7 @@ D:\bitirme projesi\mvc5kutuphane\mvckutuphane\mvckutuphane\obj\Debug\mvckutuphan
 D:\bitirme projesi\mvc5kutuphane\mvckutuphane\mvckutuphane\obj\Debug\mvckutuphane.csproj.CopyComplete
 D:\bitirme projesi\mvc5kutuphane\mvckutuphane\mvckutuphane\obj\Debug\mvckutuphane.dll
 D:\bitirme projesi\mvc5kutuphane\mvckutuphane\mvckutuphane\obj\Debug\mvckutuphane.pdb
+D:\bitirme projesi\mvc5kutuphane\mvckutuphane\mvckutuphane\bin\PagedList.dll
+D:\bitirme projesi\mvc5kutuphane\mvckutuphane\mvckutuphane\bin\PagedList.Mvc.dll
+D:\bitirme projesi\mvc5kutuphane\mvckutuphane\mvckutuphane\bin\PagedList.xml
+D:\bitirme projesi\mvc5kutuphane\mvckutuphane\mvckutuphane\bin\PagedList.Mvc.xml
