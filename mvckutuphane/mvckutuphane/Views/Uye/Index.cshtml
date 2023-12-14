@@ -43,15 +43,14 @@
     }
 
 </table>
-@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new {sayfa}))
-<nav aria-label="Page navigation example">
-    <ul class="pagination">
-        <li class="page-item"><a class="page-link" href="sayfa">Previous</a></li>
-        <li class="page-item"><a class="page-link" href="#">1</a></li>
-        <li class="page-item"><a class="page-link" href="#">2</a></li>
-        <li class="page-item"><a class="page-link" href="#">3</a></li>
-        <li class="page-item"><a class="page-link" href="#">Next</a></li>
-    </ul>
-</nav>
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new {sayfa}),
+    new PagedListRenderOptions
+{
+    LiElementClasses=new List<string>
+    {
+        "page-link"
+    }
+})
+
 
 <a href="/Uye/UyeEkle/" class="btn btn-primary">Yeni Personel Ekle</a>
