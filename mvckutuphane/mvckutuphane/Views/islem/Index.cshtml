@@ -5,7 +5,8 @@
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-<h2>Ödünç Kitap Listesi</h2>
+<h2>İadesi Alınan Kitap Listesi</h2>
+
 
 <table class="table table-bordered">
     <tr>
@@ -14,9 +15,9 @@
         <th>Üye</th>
         <th>Personel</th>
         <th>Alış Tarihi</th>
-        <th>İade Tarihi</th>
-        <th>İade Al</th>
-       
+        <th>Üye İade Tarih</th>
+        <th>Detaylar</th>
+
     </tr>
     @foreach (var k in Model)
     {
@@ -26,10 +27,10 @@
             <td>@k.TBLUYELER.AD&nbsp @k.TBLUYELER.SOYAD</td>
             <td>@k.TBLPERSONEL.PERSONEL</td>
             <td>@Convert.ToDateTime(k.ALISTARIHI).ToString("dd/MM/yyyy")</td>
-            <td>@Convert.ToDateTime(k.IADETARIHI).ToString("dd/MM/yyyy")</td>
-           
-            <td><a href="/Odunc/Odunciade/@k.ID" class="btn btn-default" style="background-color:#d38100; color:white">Kitabı İade et</a></td>
-  
+            <td>@Convert.ToDateTime(k.UYEGETIRTARIH).ToString("dd/MM/yyyy")</td>
+
+            <td><a href="/Odunc/Odunciade/@k.ID" class="btn btn-default" style="background-color:orange; color:white">Detaylar</a></td>
+
         </tr>
     }
 </table>

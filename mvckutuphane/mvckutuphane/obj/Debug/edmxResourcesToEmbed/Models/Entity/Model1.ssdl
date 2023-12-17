@@ -21,6 +21,8 @@
     <Property Name="PERSONEL" Type="tinyint" />
     <Property Name="ALISTARIHI" Type="smalldatetime" />
     <Property Name="IADETARIHI" Type="smalldatetime" />
+    <Property Name="UYEGETIRTARIH" Type="smalldatetime" />
+    <Property Name="ISLEMDURUM" Type="bit" />
   </EntityType>
   <EntityType Name="TBLKASA">
     <Key>
