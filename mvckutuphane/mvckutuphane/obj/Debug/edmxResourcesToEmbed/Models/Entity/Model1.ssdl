@@ -37,7 +37,7 @@
     </Key>
     <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="AD" Type="varchar" MaxLength="50" />
-    <Property Name="MAIL" Type="varbinary" MaxLength="50" />
+    <Property Name="MAIL" Type="varchar" MaxLength="50" />
     <Property Name="KONU" Type="varchar" MaxLength="50" />
     <Property Name="MESAJ" Type="varchar" MaxLength="1000" />
   </EntityType>

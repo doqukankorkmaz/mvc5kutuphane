@@ -25,7 +25,7 @@ namespace mvckutuphane.Controllers
             return View(cs);
         }
         [HttpPost]
-        public ActionResult Index(TBLILETISIM t) 
+        public ActionResult Index(TBLILETISIM t)
         {
             db.TBLILETISIM.Add(t);
             db.SaveChanges();
