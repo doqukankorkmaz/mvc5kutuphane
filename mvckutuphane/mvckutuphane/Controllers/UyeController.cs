@@ -22,33 +22,36 @@ namespace mvckutuphane.Controllers
         {
             return View();
         }
-        [HttpPost]
+
+
+        
+        [HttpPost]// gelen üye bilgilerini alır, model doğrulamasını kontrol eder ve uygunsa üyeyi ekler.
         public ActionResult UyeEkle(TBLUYELER  P)
         {
             if (!ModelState.IsValid)
             {
                 return View("UyeEkle");
             }
-            db.TBLUYELER.Add(P);
-            db.SaveChanges();
+            db.TBLUYELER.Add(P);//ekle
+            db.SaveChanges();//kaydet
             return View();
         }
         public ActionResult UyeSil(int id)
         {
-            var uye = db.TBLUYELER.Find(id);
-            db.TBLUYELER.Remove(uye);
-            db.SaveChanges();
-            return RedirectToAction("Index");
+            var uye = db.TBLUYELER.Find(id);//id değerine karşılık gelen değeri uye değerine atar
+            db.TBLUYELER.Remove(uye);//üyenin veritabanından silinmesini sağlar
+            db.SaveChanges();//veritabanını kaydetmek için kullanır
+            return RedirectToAction("Index");//değer silindikten sonra index sayfasına yönlendirir
         }
         public ActionResult UyeGetir(int id)
         {
             var uye = db.TBLUYELER.Find(id);
-            return View("UyeGetir", uye);
+            return View("UyeGetir", uye); //
         }
         public ActionResult UyeGuncelle(TBLUYELER p)
         {
-            var ktg = db.TBLUYELER.Find(p.ID);
-            ktg.AD = p.AD;
+            var ktg = db.TBLUYELER.Find(p.ID);//p.ID değerine sahip olan üyeyi bulur ve bu üye bilgisini ktg değişkenine atar
+            ktg.AD = p.AD;//ktg değerinden üretilen p nesnesine ad değerini atar
             ktg.SOYAD = p.SOYAD;
             ktg.MAIL= p.MAIL;
             ktg.KULLANICIADI= p.KULLANICIADI;

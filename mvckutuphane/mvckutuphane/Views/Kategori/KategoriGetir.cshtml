@@ -4,12 +4,16 @@
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-@using (Html.BeginForm("KategoriGuncelle","Kategori",FormMethod.Post))
+
+@* Kategori güncelleme işlemi için bir HTML formu başlatılır. Form, "KategoriGuncelle" action'ına POST request gönderir. *@
+@using (Html.BeginForm("KategoriGuncelle", "Kategori", FormMethod.Post))
 {
     <div style="margin-bottom:15px;"></div>
     <div class="form-group">
-        <b>@Html.LabelFor(k => k.ID)</b> 
+        <b>@Html.LabelFor(k => k.ID)</b>
+             @*  Kategori ID'sini gösteren bir etiket *@
         @Html.TextBoxFor(k => k.ID, new { @class = "form-control" })
+             @* ID'yi düzenleme imkanı veren bir metin kutusu. *@
         <br />
         <label><b>KATEGORİ ADI</b></label>
         @Html.TextBoxFor(k => k.AD, new { @class = "form-control" })

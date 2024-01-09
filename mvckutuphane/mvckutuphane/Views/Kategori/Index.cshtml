@@ -1,5 +1,6 @@
 ﻿@using mvckutuphane.Models.Entity
 @model List<TBLKATEGORI>
+@* kategoriler tablosunu listeleme işlemi yapar *@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout.cshtml";
@@ -15,19 +16,24 @@
         <th>KATEGORİ ADI</th>
         <th>SİL</th>
         <th>GÜNCELLE</th>
-
     </tr>
-    @foreach(var ktg in Model)
+
+
+    @* Modelde bulunan her bir TBLKATEGORI öğesi için bir döngü oluşturulur
+        ve tablo satırları oluşturulur. *@
+    @foreach (var ktg in Model)
     {
 
 
-    <tr>
-        <td>@ktg.ID</td>
-        <td>@ktg.AD</td>
-        <td><a href="/Kategori/KategoriSil/@ktg.ID" class="btn btn-danger">SİL</a></td>
-        <td><a href="/Kategori/KategoriGetir/@ktg.ID" class="btn btn-success">Güncelle</a></td>
-    </tr>
+        <tr>
+            <td>@ktg.ID</td>
+            <td>@ktg.AD</td>
+            <td><a href="/Kategori/KategoriSil/@ktg.ID" class="btn btn-danger">SİL</a></td>
+            @* sil butonuna basılınca ktg nesnesinden gelen Id değerini siler *@
+            <td><a href="/Kategori/KategoriGetir/@ktg.ID" class="btn btn-success">Güncelle</a></td>
+            @* güncelle butonuna basılınca ktg nesnesinden gelen Id değerini günceller *@
+        </tr>
     }
-    
+
 </table>
 <a href="/Kategori/KategoriEkle/" class="btn btn-primary">Yeni Kategori Ekle</a> 

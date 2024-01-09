@@ -7,11 +7,16 @@
 <br />
 <h2>Kitap Sayfası</h2>
 
+
 @using (Html.BeginForm("Index", "Kitap", FormMethod.Get))
+/* Bu blok, bir HTML formu oluşturur. Form, "Index" action'ına ve "Kitap" controller'ına GET request gönderir. 
+Bu form, kitap adıyla arama yapmak için kullanılır.*/
 {
     <div style="margin-bottom:15px; margin-top:15px;">
         <b>Aranacak Kitap Adını giriniz: </b> @Html.TextBox("p")
-        <input type="submit" value="ara" />
+        @* @Html.TextBox("p") ifadesi, "p" isminde bir parametre ile gönderilen kitap adını almak için kullanılır.,
+            "p" parametresi, formun gönderildiği action methodunda alınacak. *@
+         <input type="submit" value="ara" />
     </div>
 }
 

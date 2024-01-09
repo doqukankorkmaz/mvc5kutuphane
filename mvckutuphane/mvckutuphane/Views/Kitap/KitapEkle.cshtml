@@ -1,4 +1,5 @@
 ﻿@model mvckutuphane.Models.Entity.TBLKITAP
+@* Bu ifade, görünümün modelini belirtir ve TBLKITAP tipinde bir kitap nesnesini beklediğini gösterir. *@
 @{
     ViewBag.Title = "KitapEkle";
     Layout = "~/Views/Shared/Layout.cshtml";
@@ -6,23 +7,32 @@
 
 <h2>KitapEkle</h2>
 
+
+@* Yeni kitap eklemek için bir HTML formu başlatılır. Form, HTTP POST yöntemi ile gönderilecektir. *@
 <form class="form-group" method="post">
     <div></div>
     <div style="margin-top:15px">
         <label><b>Kitap Adı</b></label>
         @Html.TextBoxFor(k => k.AD, new { @class = "form-control" })
+        @* kitap adı girebilmemiz için yeni bir textbox oluşturur *@
     </div>
     <div style="margin-top:15px">
         <label><b>Kitap Kategorisi</b></label>
-        @Html.DropDownListFor(k => k.TBLKATEGORI.ID, (List < SelectListItem >) ViewBag.dgr1, new {@class="form-control"})
+        @Html.DropDownListFor(k => k.TBLKATEGORI.ID, (List<SelectListItem>)ViewBag.dgr1, new { @class = "form-control" })
+        @* kategori tablosundan ıd değerini bizlere dropdown komudu ile sayfamıza çeker ve yazar tablosunda var olan değerleri listeler *@
+
     </div>
     <div style="margin-top:15px">
         <label><b>Kitap Yazar</b></label>
-        @Html.DropDownListFor(k=>k.TBLYAZAR.ID,(List<SelectListItem>)ViewBag.dgr2, new { @class="form-control"})
+        @Html.DropDownListFor(k => k.TBLYAZAR.ID, (List<SelectListItem>)ViewBag.dgr2, new { @class = "form-control" })
+        @* yazarlar tablosundan ıd değerini bizlere dropdown komudu ile sayfamıza çeker ve yazar tablosunda var olan değerleri listeler *@
+
     </div>
     <div style="margin-top:15px">
         <label><b>Basım Yılı</b></label>
         @Html.TextBoxFor(k => k.BASIMYIL, new { @class = "form-control" })
+        @* değer girebilmemiz için yeni bir textbox oluşturur *@
+
     </div>
     <div style="margin-top:15px">
         <label><b>Yayınevi</b></label>

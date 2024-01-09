@@ -24,9 +24,11 @@
         <br />
         <label><b>Normal Alış Tarihi</b></label>
         @Html.TextBoxFor(k => k.ALISTARIHI, "{0: dd.MM.yyyy}", new { @class = "form-control" })
+        @*{0: dd.MM.yyyy} format belirtilmiştir. Bu, tarihin gün/ay/yıl formatında görüntülenmesini sağlar.*@
         <br />
         <label><b>İade Tarihi</b></label>
         @Html.TextBoxFor(k => k.IADETARIHI, "{0: dd.MM.yyyy}", new { @class = "form-control" })
+        @* {0: dd.MM.yyyy} format belirtilmiştir. Bu, tarihin gün/ay/yıl formatında görüntülenmesini sağlar. *@
         <br />
         <label><b>Verilen Tarih</b></label>
         <input type="text" class="form-control" name="UYEGETIRTARIH" value="@DateTime.Now.ToShortDateString()" />@*alınan günün tarihi *@

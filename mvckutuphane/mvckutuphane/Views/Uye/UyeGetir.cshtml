@@ -1,17 +1,25 @@
 ﻿@model mvckutuphane.Models.Entity.TBLUYELER
+@* görünümün modelini belirtir  *@
 @{
     ViewBag.Title = "UyeGetir";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
-
 <h2>UyeGetir</h2>
 
+
+
+@* Üye bilgilerini güncellemek için bir HTML formu başlatılır.
+    Form, "UyeGuncelle" action'ına POST request *@
 @using (Html.BeginForm("UyeGuncelle", "Uye", FormMethod.Post))
+
+
 {
     <div style="margin-bottom:15px;"></div>
     <div class="form-group">
         <b>@Html.LabelFor(k => k.ID)</b>
+                 @* Üye ID'sini temsil eden etiket. *@
         @Html.TextBoxFor(k => k.ID, new { @class = "form-control" })
+                 @*  Üye ID'sini giriş yapmak için bir metin kutusu. *@
         <br />
         <label><b>Üye ADI</b></label>
         @Html.TextBoxFor(k => k.AD, new { @class = "form-control" })<br />

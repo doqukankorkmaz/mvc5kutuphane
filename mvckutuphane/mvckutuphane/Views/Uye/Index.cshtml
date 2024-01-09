@@ -1,8 +1,10 @@
-﻿@using mvckutuphane.Models.Entity
-@using PagedList
+﻿@using mvckutuphane.Models.Entity@*mvckutuphane.Models.Entity namespace'indeki sınıfları kullanabileceğimizi belirtir.  *@
+@using PagedList@*sayfalama işlemleri için PagedList kütüphanesini kullanmak için gerekli namespace'leri ekler.*@
 @using PagedList.Mvc
 
 @model PagedList.IPagedList<TBLUYELER>
+@* Bu satır, sayfanın modelinin bir sayfalı liste (IPagedList) olduğunu ve 
+    bu liste içinde TBLUYELER tipinde üye nesnelerini içerdiğini belirtir. *@
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout.cshtml";
@@ -11,46 +13,53 @@
 <h2>Index</h2>
 
 <table class="table table-bordered">
-    <tr border>
-        <th>Üye ID</th>
-        <th>Üye ADI</th>
-        <th>Üye SOYADI</th>
-        <th>Mail</th>
-        <th>Kullanıcı Adı</th>
-        <th>Şifresi</th>
-        <th>Telefon</th>
-        <th>Okul</th>
-        <th>Sil</th>
-        <th>Güncelle</th>
+    @* tablolama işlemleri *@
+<tr border>
+    <th>Üye ID</th>
+    <th>Üye ADI</th>
+    <th>Üye SOYADI</th>
+    <th>Mail</th>
+    <th>Kullanıcı Adı</th>
+    <th>Şifresi</th>
+    <th>Telefon</th>
+    <th>Okul</th>
+    <th>Sil</th>
+    <th>Güncelle</th>
 
+</tr>
+
+@*
+    Sayfalı liste içinde döngü yaparak her bir üye için bir tablo satırı oluşturulur. 
+    Üyenin özellikleri (ID, AD, SOYAD, vb.) kullanılarak tablo hücreleri doldurulur. *@
+@foreach (var uye in Model)
+{
+
+
+    <tr>
+        <td>@uye.ID</td>
+        <td>@uye.AD</td>
+        <td>@uye.SOYAD</td>
+        <td>@uye.MAIL</td>
+        <td>@uye.KULLANICIADI</td>
+        <td>@uye.SIFRE</td>
+        <td>@uye.TELEFON</td>
+        <td>@uye.OKUL</td>
+        <td><a href="/Uye/UyeSil/@uye.ID" class="btn btn-danger">SİL</a></td>
+        <td><a href="/Uye/UyeGetir/@uye.ID" class="btn btn-success">Güncelle</a></td>
     </tr>
-    @foreach (var uye in Model)
-    {
-
-
-        <tr>
-            <td>@uye.ID</td>
-            <td>@uye.AD</td>
-            <td>@uye.SOYAD</td>
-            <td>@uye.MAIL</td>
-            <td>@uye.KULLANICIADI</td>
-            <td>@uye.SIFRE</td>
-            <td>@uye.TELEFON</td>
-            <td>@uye.OKUL</td>
-            <td><a href="/Uye/UyeSil/@uye.ID" class="btn btn-danger">SİL</a></td>
-            <td><a href="/Uye/UyeGetir/@uye.ID" class="btn btn-success">Güncelle</a></td>
-        </tr>
-    }
+}
 
 </table>
-@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new {sayfa}),
+
+@Html.PagedListPager((IPagedList)Model, sayfa => Url.Action("Index", new { sayfa }),
     new PagedListRenderOptions
 {
-    LiElementClasses=new List<string>
+    LiElementClasses = new List<string>
     {
         "page-link"
     }
 })
+@* üyeler sayfasındaki kayıtları sayfa sayfa ayırarak kullanmak için bu kod satırı kullanılmıştır *@
 
-
-<a href="/Uye/UyeEkle/" class="btn btn-primary">Yeni Personel Ekle</a>
+<a href="/Uye/UyeEkle/" class="btn btn-primary">Yeni Personel Ekle</a> 
+@* yeni personel ekle sayfasına yönlendirir *@
